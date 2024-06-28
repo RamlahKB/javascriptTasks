@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loader</title>
+    <style>
+      .dot div {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: yellow;
+        display: inline-block;
+        margin: 5px;
+      }
+
+      .flex {
+        display: flex;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex dot">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <script>
+      const dots = document.querySelectorAll(".dot div");
+      let counter = 0;
+
+      const lighting = (i) => {
+        dots[i].style.backgroundColor = "black";
+
+        setTimeout(() => {
+          dots[i].style.backgroundColor = "yellow";
+          counter = (i + 1) % dots.length;
+
+          lighting(counter);
+        }, 500);
+      };
+
+      lighting(counter);
+    </script>
+  </body>
+</html>
